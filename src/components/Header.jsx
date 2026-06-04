@@ -17,10 +17,6 @@ const Header = () => {
               src={meetupLogo}
               alt="Meetup Logo"
               className="meetup-logo"
-              style={{
-                height: "120px",
-                width: "auto",
-              }}
             />
           </NavLink>
 

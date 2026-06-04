@@ -34,6 +34,7 @@
 .search-container .form-control {
   box-shadow: none;
   border: none;
+  padding: 0.5rem 0.9rem;
 }
 
 .search-container .form-control:focus {
@@ -46,17 +47,33 @@
   border: none;
   background: transparent;
   color: #6b7280;
+  padding: 0.5rem 0.9rem;
 }
 
-/* Mobile Responsive */
-
 @media (max-width: 768px) {
-  .search-container {
-    width: 220px;
+  .custom-header nav {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
   }
 
   .meetup-logo {
     height: 38px;
+  }
+
+  .search-container {
+    width: 220px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-header nav > div {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-container {
+    width: 100%;
   }
 }
 

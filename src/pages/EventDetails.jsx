@@ -4,7 +4,6 @@ import Loader from "../components/Loader";
 import useFetch from "../hooks/useFetch";
 const EventDetails = () => {
   const { eventId } = useParams();
-
   const {
     data: event,
     loading,
@@ -13,17 +12,13 @@ const EventDetails = () => {
 
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
-
   return (
     <>
       <Header />
-
       <div className="container py-4">
         <div className="row g-4">
-          
           {/* LEFT SECTION */}
           <div className="col-lg-8">
-
             <h1 className="fw-bold">{event.title}</h1>
 
             <p className="text-muted mb-4">
@@ -95,28 +90,18 @@ const EventDetails = () => {
               </h4>
 
             </div>
-
             <div className="mt-4">
 
               <h3 className="fw-bold">
                 Speaker
               </h3>
-
               <div className="card border-0 shadow-sm p-3 mt-3">
                 <h5>{event.speaker}</h5>
                 <p className="text-muted mb-0">
                   Guest Speaker
                 </p>
               </div>
-
             </div>
-
-            <button
-              className="btn btn-danger w-100 mt-4"
-            >
-              RSVP
-            </button>
-
           </div>
 
         </div>
