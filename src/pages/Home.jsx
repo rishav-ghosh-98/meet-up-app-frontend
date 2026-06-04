@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ENDPOINTS } from "../api/endpoints";
 import useFetch from "../hooks/useFetch";
 import EventCard from "../components/EventCard";
 import Loader from "../components/Loader";
+import SearchContext from "../context/SearchContext";
 const Home = () => {
+    const { searchTerm } = useContext(SearchContext);
     const [filter, setFilter] = useState("all");
     const { data: response, loading, error } = useFetch(ENDPOINTS.events);
     const events = response?.events || [];
 
+    const normalizedSearch = String(searchTerm || "").toLowerCase().trim();
+
     const filteredEvents = events.filter((event) => {
-        if (filter === "all") return true;
-        return String(event.type || "").toLowerCase() === filter;
+        const typeMatch = filter === "all" || String(event.type || "").toLowerCase() === filter;
+
+        if (!normalizedSearch) {
+            return typeMatch;
+        }
+
+        const title = String(event.title || "").toLowerCase();
+        const tags = Array.isArray(event.tags)
+            ? event.tags.map((tag) => String(tag).toLowerCase()).join(" ")
+            : String(event.tags || "").toLowerCase();
+        const searchMatch = title.includes(normalizedSearch) || tags.includes(normalizedSearch);
+
+        return typeMatch && searchMatch;
     });
 
     if (loading) return <Loader />;
@@ -39,11 +54,19 @@ const Home = () => {
                 </div>
             </div>
             <div className="row gx-3 gy-4">
-                {filteredEvents.map((event) => (
-                    <div key={event._id || event.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <EventCard event={event} />
+                {filteredEvents.length > 0 ? (
+                    filteredEvents.map((event) => (
+                        <div key={event._id || event.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <EventCard event={event} />
+                        </div>
+                    ))
+                ) : (
+                    <div className="col-12">
+                        <div className="alert alert-light border rounded-4 py-4 text-center">
+                            No events match your search or selected filter.
+                        </div>
                     </div>
-                ))}
+                )}
             </div>
         </div>
         </>

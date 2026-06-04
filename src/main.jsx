@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import EventDetails from './pages/EventDetails.jsx'
+import { SearchProvider } from './context/SearchContext'
 const router = createBrowserRouter([
    {
     path: "/",
@@ -17,6 +18,8 @@ const router = createBrowserRouter([
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <SearchProvider>
+      <RouterProvider router={router} />
+    </SearchProvider>
   </StrictMode>,
 )
