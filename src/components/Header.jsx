@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <header className="custom-header">
-      <nav className="container py-2">
+      <nav className="container-fluid px-4 py-2">
         <div className="d-flex justify-content-between align-items-center">
           {/* Logo */}
           <NavLink to="/" className="navbar-brand text-decoration-none m-0">

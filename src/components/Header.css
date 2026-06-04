@@ -1,9 +1,16 @@
 .custom-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: none;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: saturate(180%) blur(18px);
+}
+
+.custom-header nav {
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
 }
 
 .meetup-logo {
@@ -13,26 +20,32 @@
 }
 
 .search-container {
-  width: 350px;
+  max-width: 420px;
+  width: 100%;
 }
 
 .search-container .input-group {
-  border-radius: 8px;
+  border-radius: 999px;
   overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #ffffff;
 }
 
 .search-container .form-control {
   box-shadow: none;
-  border-color: #dee2e6;
+  border: none;
 }
 
 .search-container .form-control:focus {
   box-shadow: none;
-  border-color: #dee2e6;
+  border: none;
+  outline: none;
 }
 
 .search-container .input-group-text {
-  border-color: #dee2e6;
+  border: none;
+  background: transparent;
+  color: #6b7280;
 }
 
 /* Mobile Responsive */
