@@ -73,18 +73,7 @@
   }
 
   .meetup-logo {
-    height: 60px;
-  }
-
-  .search-container {
-    width: 100%;
-  }
-}
-
-@media (max-width: 576px) {
-  .custom-header nav > div {
-    flex-direction: column;
-    gap: 12px;
+    height: 66px;
   }
 
   .search-container {
