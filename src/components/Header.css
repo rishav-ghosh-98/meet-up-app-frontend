@@ -14,7 +14,7 @@
 }
 
 .meetup-logo {
-  height: 45px;
+  height: 65px;
   width: auto;
   object-fit: contain;
 }
@@ -57,7 +57,7 @@
   }
 
   .meetup-logo {
-    height: 38px;
+    height: 50px;
   }
 
   .search-container {
@@ -70,6 +70,10 @@
   .custom-header nav > div {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .meetup-logo {
+    height: 52px;
   }
 
   .search-container {
